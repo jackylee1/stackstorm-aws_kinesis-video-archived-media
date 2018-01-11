@@ -1,0 +1,29 @@
+---
+description: 
+pack: aws_kinesis-video-archived-media
+enabled: true
+entry_point: run.py
+name: get_media_for_fragment_list
+runner_type: python-script
+parameters:
+  action:
+    default: get_media_for_fragment_list
+    immutable: true
+    type: string
+  cls:
+    default: kinesis-video-archived-media
+    type: string
+  headers:
+    type: string
+  module_path:
+    default: boto3
+    immutable: true
+    type: string
+  StreamName:
+    type: string
+    description: "The name of the stream from which to retrieve fragment media."
+    required: true
+  Fragments:
+    type: array
+    description: "A list of the numbers of fragments for which to retrieve media. You retrieve these values with ListFragments."
+    required: true
